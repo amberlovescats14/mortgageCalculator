@@ -6,52 +6,68 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        //        MORTGAGE CALCULATOR
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENT = 100;
+       String message =  greetUser("Amber", "Jones");
+        System.out.println(message);
 
-        Scanner principalIn = new Scanner(System.in);
-        double principalSave;
-        while(true) {
-            System.out.print("Principal Borrowing Amount; 1K -1M: " );
-            principalSave = principalIn.nextDouble();
-            if(principalSave >= 1000 && principalSave < 1_000_000) break;
-            System.out.println("Enter a value between 1K and 1M");
+        int principal = askPrincipal();
+        double monthlyInterest =  askInterest();
+        int months = askYears();
+        String mortgage = calculateMortgage(principal, monthlyInterest, months);
+        System.out.println("Average monthly payment: " + mortgage);
+
+
+    }
+    //OUTSIDE THE MAIN
+    public static String greetUser(String firstName, String lastName){
+       return "Hello " + firstName + " " + lastName;
+    }
+    public static int askPrincipal(){
+        Scanner scan = new Scanner(System.in);
+        int principal;
+        while(true){
+            System.out.print("Principal amount?");
+            principal = scan.nextInt();
+            if(principal > 1000 && principal < 1000000) break;
+            System.out.println("Please enter an amount between 1K - 1M");
         }
+        return principal;
+    }
 
-
-
-        Scanner annualIn = new Scanner(System.in);
+    public static double askInterest(){
+        Scanner scan = new Scanner(System.in);
         double monthlyInterest;
         while(true){
-            System.out.print("Annual Interest Rate: ");
-            monthlyInterest = (annualIn.nextDouble() / PERCENT) / MONTHS_IN_YEAR;
+            System.out.print("Annual Interest?");
+            monthlyInterest = (scan.nextDouble() / 100) /12;
             if(monthlyInterest > 0 && monthlyInterest < 10) break;
-            System.out.println("Please enter a number between .1-10");
+            System.out.println("Please enter a rate between .1 - 10");
         }
-
-
-        Scanner years = new Scanner(System.in);
-        int loanMonths;
-        while(true){
-            System.out.print("How many year would you like to finance: ");
-            loanMonths = years.nextInt();
-            if( loanMonths >= 10 && loanMonths <= 50) break;
-            System.out.println("Please choose a number between 10-50");
+        return  monthlyInterest;
+    }
+    public static int askYears() {
+        Scanner scan = new Scanner(System.in);
+        int months;
+        while(true) {
+            System.out.print("How many years would you like to finance?");
+            int years = scan.nextInt();
+            months = years * 12;
+            if(years > 10 && years < 51) break;
+            System.out.println("Please choose between 10 - 50 years.");
         }
+        return months;
+    }
 
-//        double mortgage = principal
-//                * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
-//                / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
-
-
-        double top = (monthlyInterest * Math.pow(1 + monthlyInterest, loanMonths));
-        double bottom = (Math.pow(1 + monthlyInterest, loanMonths) - 1);
-        double divided = top / bottom;
-        double multiply = principalSave * divided;
+    public static String calculateMortgage(
+            int principal,
+            double monthlyInterest,
+            int months
+    ) {
+        double top = monthlyInterest * Math.pow(1 + monthlyInterest, months);
+        double bottom = Math.pow(1 + monthlyInterest, months) -1;
+        double divide = top / bottom;
+        double multiply = principal * divide;
 
         String mortgage = NumberFormat.getCurrencyInstance().format(multiply);
-        System.out.println("Monthly payment amount: " + mortgage);
-
+        return mortgage;
     }
 }
