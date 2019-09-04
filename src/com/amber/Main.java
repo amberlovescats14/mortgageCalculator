@@ -12,9 +12,21 @@ public class Main {
         int principal = askPrincipal();
         double monthlyInterest =  askInterest();
         int months = askYears();
+        int numberOfPaymentsMade = 1;
         String mortgage = calculateMortgage(principal, monthlyInterest, months);
         System.out.println("Average monthly payment: " + mortgage);
 
+
+        System.out.println("----------------");
+        System.out.println("Monthly Payments: ");
+
+        for(short i =1; i < months; i++){
+            numberOfPaymentsMade++;
+            double b = paymentSchedule(principal, monthlyInterest, months, numberOfPaymentsMade);
+            System.out.println(
+                    NumberFormat.getCurrencyInstance().format(b)
+            );
+        }
 
     }
     //OUTSIDE THE MAIN
@@ -69,5 +81,21 @@ public class Main {
 
         String mortgage = NumberFormat.getCurrencyInstance().format(multiply);
         return mortgage;
+    }
+
+    public static double paymentSchedule(
+            int principal,
+            double monthlyInterest,
+            int months,
+            int numberOfPaymentsMade
+    ) {
+            double top = (Math.pow(1+monthlyInterest, months) )- Math.pow(1 + monthlyInterest, numberOfPaymentsMade);
+            double bottom = Math.pow(1+monthlyInterest, months) -1;
+            double b = principal * (top / bottom);
+//            double b = principal *
+//                    ((Math.pow(1 + monthlyInterest, months) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade) - 1) /
+//                    (Math.pow(1 + monthlyInterest, months ) -1));
+            return b;
+
     }
 }
