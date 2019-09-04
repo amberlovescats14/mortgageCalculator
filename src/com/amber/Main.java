@@ -16,17 +16,10 @@ public class Main {
         String mortgage = calculateMortgage(principal, monthlyInterest, months);
         System.out.println("Average monthly payment: " + mortgage);
 
+        printSchedule(principal, monthlyInterest, months, numberOfPaymentsMade);
 
-        System.out.println("----------------");
-        System.out.println("Monthly Payments: ");
 
-        for(short i =1; i < months; i++){
-            numberOfPaymentsMade++;
-            double b = paymentSchedule(principal, monthlyInterest, months, numberOfPaymentsMade);
-            System.out.println(
-                    NumberFormat.getCurrencyInstance().format(b)
-            );
-        }
+
 
     }
     //OUTSIDE THE MAIN
@@ -96,6 +89,23 @@ public class Main {
 //                    ((Math.pow(1 + monthlyInterest, months) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade) - 1) /
 //                    (Math.pow(1 + monthlyInterest, months ) -1));
             return b;
+    }
+    public static void printSchedule(
+            int principal,
+            double monthlyInterest,
+            int months,
+            int numberOfPaymentsMade
+    ){
+        System.out.println("----------------");
+        System.out.println("Monthly Payments: ");
 
+        for(short i =1; i < months; i++){
+            numberOfPaymentsMade++;
+            double b = paymentSchedule(principal, monthlyInterest, months, numberOfPaymentsMade);
+            System.out.println(
+                    NumberFormat.getCurrencyInstance().format(b)
+            );
+        }
     }
 }
+//B = L[(1 + c)n - (1 + c)p]/[(1 + c)n - 1]
