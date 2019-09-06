@@ -1,8 +1,16 @@
 package com.amber;
 
 public class Greeting {
+    private String firstName;
+    private String  lastName;
+
+    public Greeting(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     //OUTSIDE THE MAIN
-    public static String greetUser(String firstName, String lastName){
+    public String greetUser(){
        return "Hello " + firstName + " " + lastName;
     }
 }

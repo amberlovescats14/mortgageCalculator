@@ -2,27 +2,20 @@ package com.amber;
 
 public class Main {
 
-    private static CalculateMortgage calculator;
-    private static PaymentSchedule paymentSchedule;
 
     public static void main(String[] args) {
-       String message =  Greeting.greetUser("Amber", "Jones");
-        System.out.println(message);
+       new Greeting("Amber", "Jones").greetUser();
 
         // When the methods are not static, we don't need a constructor, we just call a new instance
         int principal = new Principal().askPrincipal();
         double monthlyInterest = new Interest().askInterest();
         int months = new Years().askYears();
 
-//        String mortgage = CalculateMortgage.calculateMortgage(principal, monthlyInterest, months);
-        calculator = new CalculateMortgage(principal, monthlyInterest, months);
-        String mortgage = calculator.calculateMortgage();
+         new CalculateMortgage(principal, monthlyInterest, months).calculateMortgage();
 
 
 
-        System.out.println("Average monthly payment: " + mortgage);
-
-
+//LOOK AT THIS EXAMPLE
 //This is another example of NON STATIC methods in the PaymentSchedule class
         //1
 //        PaymentSchedule.printSchedule(principal, monthlyInterest, months, numberOfPaymentsMade);

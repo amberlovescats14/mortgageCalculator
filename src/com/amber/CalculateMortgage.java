@@ -21,6 +21,6 @@ public class CalculateMortgage {
         double multiply = principal * divide;
 
         String mortgage = NumberFormat.getCurrencyInstance().format(multiply);
-        return mortgage;
+        return "Monthly payment: " + mortgage;
     }
 }
