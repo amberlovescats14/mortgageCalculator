@@ -21,7 +21,7 @@ public class Interest {
     }
 
     //GET
-    public double getMonthlyInterest() {
+    private double getMonthlyInterest() {
         return monthlyInterest;
     }
 }

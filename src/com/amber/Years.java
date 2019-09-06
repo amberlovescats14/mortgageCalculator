@@ -22,7 +22,7 @@ public class Years {
 
 
 // GET
-    public int getMonths() {
+    private int getMonths() {
         return  months;
     }
 

@@ -18,7 +18,7 @@ public class Greeting {
     }
 
     //GET name
-    public String getName() {
+    private String getName() {
         return firstName + " " + lastName;
     }
 }

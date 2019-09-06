@@ -29,7 +29,7 @@ public class CalculateMortgage {
     }
 
     //GET
-    public String getMortgage() {
+    private String getMortgage() {
         return mortgage;
     }
 }

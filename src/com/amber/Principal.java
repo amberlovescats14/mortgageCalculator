@@ -19,7 +19,7 @@ public class Principal {
     }
 
     //GET
-    public int getPrincipal(){
+    private int getPrincipal(){
         return principal;
     }
 }
