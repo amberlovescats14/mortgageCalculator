@@ -5,13 +5,9 @@ import java.util.Scanner;
 public class Principal {
     int principal;
 
-// CONSTRUCTOR -- but not needed
-    public Principal(int principal) {
-        this.principal = principal;
-    }
 
     //SET with Scanner
-    public  int askPrincipal(){
+    public int askPrincipal(){
         Scanner scan = new Scanner(System.in);
         while(true){
             System.out.print("Principal amount?");

@@ -5,10 +5,7 @@ import java.util.Scanner;
 public class Years {
     private int months;
 
-    // Constructor  -- not really needed because the scanner is happening here
-    public Years(int months) {
-        this.months = months;
-    }
+
 
     public int askYears() {
         Scanner scan = new Scanner(System.in);

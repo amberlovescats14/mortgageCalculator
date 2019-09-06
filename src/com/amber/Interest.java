@@ -6,10 +6,7 @@ public class Interest {
 
     double monthlyInterest;
 
-    // CONSTRUCTOR -- not really needed because Scanner is generating an input
-    public Interest(double monthlyInterest) {
-        this.monthlyInterest = monthlyInterest;
-    }
+
 
     //SET
     public double askInterest(){
