@@ -3,10 +3,13 @@ package com.amber;
 import java.text.NumberFormat;
 
 public class PaymentSchedule {
-    int principal;
-    double monthlyInterest;
-    int months;
-    int numberOfPaymentsMade = 1;
+    private int principal;
+    private double monthlyInterest;
+    private int months;
+    private int numberOfPaymentsMade = 1;
+
+    // This class is different because it takes in arguments to calculate and prints it
+    // in a sout not in a return statment
 
     //constructor
     public PaymentSchedule(int principal, double monthlyInterest, int months) {

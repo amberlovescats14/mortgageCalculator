@@ -4,15 +4,18 @@ public class Main {
 
 
     public static void main(String[] args) {
-       new Greeting("Amber", "Jones").greetUser();
+        //THIS NEEDS TO BE sout because the functions uses a return statment .
+        // u cant view a return statment in the console
+       String sayHello = new Greeting("Amber", "Jones").greetUser();
+        System.out.println(sayHello);
 
         // When the methods are not static, we don't need a constructor, we just call a new instance
         int principal = new Principal().askPrincipal();
         double monthlyInterest = new Interest().askInterest();
         int months = new Years().askYears();
 
-         new CalculateMortgage(principal, monthlyInterest, months).calculateMortgage();
-
+         String monthlyPayment = new CalculateMortgage(principal, monthlyInterest, months).calculateMortgage();
+        System.out.println(monthlyPayment);
 
 
 //LOOK AT THIS EXAMPLE

@@ -9,8 +9,16 @@ public class Greeting {
         this.lastName = lastName;
     }
 
+
+
     //OUTSIDE THE MAIN
+    //SET
     public String greetUser(){
        return "Hello " + firstName + " " + lastName;
+    }
+
+    //GET name
+    public String getName() {
+        return firstName + " " + lastName;
     }
 }

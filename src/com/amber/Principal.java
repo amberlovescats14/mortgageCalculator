@@ -3,7 +3,7 @@ package com.amber;
 import java.util.Scanner;
 
 public class Principal {
-    int principal;
+    private int principal;
 
 
     //SET with Scanner

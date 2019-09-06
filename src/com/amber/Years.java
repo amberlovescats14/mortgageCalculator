@@ -6,6 +6,7 @@ public class Years {
     private int months;
 
 
+    //SET
 
     public int askYears() {
         Scanner scan = new Scanner(System.in);

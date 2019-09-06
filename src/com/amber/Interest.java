@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Interest {
 
-    double monthlyInterest;
+    private double monthlyInterest;
 
 
 
